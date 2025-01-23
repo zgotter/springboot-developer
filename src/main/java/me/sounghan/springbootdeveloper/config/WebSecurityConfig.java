@@ -31,8 +31,8 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .authorizeRequests() // 3) 인증, 인가 설정
-                .requestMatchers("/login", "/signup", "user").permitAll()
+                .authorizeHttpRequests() // 3) 인증, 인가 설정
+                .requestMatchers("/login", "/signup", "/user").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin() // 4) 폼 기반 로그인 설정
